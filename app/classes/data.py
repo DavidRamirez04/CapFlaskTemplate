@@ -3,6 +3,7 @@
 # like IntField, StringField etc.  This uses the Mongoengine Python Library. When you interact with the 
 # data you are creating an onject that is an instance of the class.
 
+
 from app import app
 from flask import flash
 from flask_login import UserMixin
@@ -21,7 +22,7 @@ class User(UserMixin, Document):
     lname = StringField()
     email = EmailField()
     image = FileField()
-    
+    role = StringField()
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
 

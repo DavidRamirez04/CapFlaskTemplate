@@ -11,6 +11,14 @@
         {% endfor %}
     {% endfor %}
 
+    <p>
+        {{ form.role.label }}<br>
+        {{ form.role() }}<br>
+        {% for error in form.role.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    
     <h1>Register</h1>
     <form action="" method="post" enctype="multipart/form-data">
         {{ form.hidden_tag() }}
