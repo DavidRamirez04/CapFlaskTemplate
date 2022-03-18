@@ -59,6 +59,7 @@ class ProfileForm(FlaskForm):
     image = FileField("Image") 
     submit = SubmitField('Post')
     role = SelectField('Role',choices=[("Teacher","Teacher"),("Student","Student")])
+    Astrology = SelectField('Astrology',choices=[("Aries","Aries"),("Taurus","Taurus"),("Gemini","Gemini"),("Cancer","Cancer"),("Leo","Leo"),("Virgo","Virgo"),("Libra","Libra"),("Scorpio","Scorpio"),("Sagittarius","Sagittarius"),("Capricorn","Capricorn"),("Aquarius","Aquarius"),("Pisces","Pisces")])
 class PostForm(FlaskForm):
     subject = StringField('Subject', validators=[DataRequired()])
     content = TextAreaField('Post', validators=[DataRequired()])

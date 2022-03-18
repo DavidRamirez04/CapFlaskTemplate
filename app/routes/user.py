@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from app import app
 from flask_login.utils import login_required
 from app import app
@@ -37,7 +38,8 @@ def profileEdit():
         currUser.update(
             lname = form.lname.data,
             fname = form.fname.data,
-            role = form.role.data
+            role = form.role.data,
+            Astrology = form.Astrology.data,
         )
         # This updates the profile image
         if form.image.data:
@@ -54,4 +56,5 @@ def profileEdit():
     form.fname.data = current_user.fname
     form.lname.data = current_user.lname
     form.role.data = current_user.role
+    form.Astrology.data = current_user.Astrology
     return render_template('profileform.html', form=form)
