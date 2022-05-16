@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block body %}
+        <h1></h1>
+
+        <form method=post>
+            {{ form.hidden_tag() }}     
+            <p>
+                {{ form.grad_rate.label }} <br>
+                {{ form.grad_rate(size=64) }}
+                <!--List the errors for this field-->
+                {% for error in form.grad_rate.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>    
+            <p>    
+                {{ form.school.label }} <br>
+                {{ form.school(size=64) }}
+                <!--List the errors for this field-->
+                {% for error in form.school.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>         
+            <p>
+                {{ form.location.label }} <br>
+                {{ form.location(size=64) }}
+                <!--List the errors for this field-->
+                {% for error in form.location.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p> 
+            <p>        
+                {{ form.tuition_in.label }} <br>
+                {{ form.tuition_in(size=64) }}
+                <!--List the errors for this field-->
+                {% for error in form.tuition_in.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>  
+            <p>    
+                {{ form.tuition_out.label }} <br>
+                {{ form.tuition_out(size=64) }}
+                <!--List the errors for this field-->
+                {% for error in form.tuition_out.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>   
+            <p>     
+                {{ form.acceptance.label }} <br>
+                {{ form.acceptance(size=64) }}
+                <!--List the errors for this field-->
+                {% for error in form.acceptance.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>     
+            <p>
+                {{ form.ranking.label }} <br>
+                {{ form.ranking(size=64) }}
+                <!--List the errors for this field-->
+                {% for error in form.ranking.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>       
+            <p>
+                {{ form.description.label }} <br>
+                {{ form.description(size=64) }}
+                <!--List the errors for this field-->
+                {% for error in form.description.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+        
+            <p>
+                {{form.submit()}}
+            </p>
+        </form>
+        
+{% endblock %}

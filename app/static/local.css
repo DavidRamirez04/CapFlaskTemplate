@@ -2,8 +2,28 @@
     vertical-align:bottom;
     }
 
-    .alpha { color: purple; }
+.alpha { color: purple; }
+
 .beta {
   color: yellow-300;
   background-color: indigo-900;
 }
+
+.college {
+  height: 100vh;
+  background-image: linear-
+  gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(CollegePic.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.body {
+  background-color:green;
+}
+
+.bg {
+  background-color:green;
+}   

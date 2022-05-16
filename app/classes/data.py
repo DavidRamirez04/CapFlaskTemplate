@@ -5,10 +5,12 @@
 # you interact with the data you are creating an onject that is an instance of the class.
 
 
+from turtle import title
+from unicodedata import name
 from app import app
 from flask import flash
 from flask_login import UserMixin
-from mongoengine import FileField, EmailField, StringField, ReferenceField, DateTimeField, CASCADE
+from mongoengine import FileField, EmailField, StringField, ReferenceField, DateTimeField, IntField, CASCADE
 from flask_mongoengine import Document
 from werkzeug.security import generate_password_hash, check_password_hash
 import datetime as dt
@@ -64,6 +66,24 @@ class Comment(Document):
     content = StringField()
     createdate = DateTimeField(default=dt.datetime.utcnow)
     modifydate = DateTimeField()
+
+
+    meta = {
+        'ordering': ['-createdate']
+    }
+
+class College(Document):
+    author = ReferenceField('User',reverse_delete_rule=CASCADE)
+    createdate = DateTimeField(default=dt.datetime.utcnow)
+    modifydate = DateTimeField()
+    school = StringField()
+    location = StringField()
+    tuition_in = IntField()
+    tuition_out = IntField()
+    acceptance = IntField()
+    grad_rate = IntField()
+    ranking = IntField()
+    description = StringField()
 
     meta = {
         'ordering': ['-createdate']

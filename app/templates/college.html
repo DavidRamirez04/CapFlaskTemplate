@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class=".bg-success">
+    
+
+{% if college %}
+
+{{moment(college.createdate).calendar()}} by {{college.author.username}} 
+{% if college.modifydate %}
+    modified {{moment(college.modifydate).calendar()}}
+{% endif %}
+<br>
+    {% if college.author == current_user %}
+        <a data-toggle="tooltip" data-placement="top" title="Delete Post" href="/college/delete/{{college.id}}">
+            <img width="40" class="bottom-image" src="/static/delete.png">
+        </a>
+        <a data-toggle="tooltip" data-placement="top" title="Edit Post" href="/college/edit/{{college.id}}">
+            <img width="40" class="bottom-image" src="/static/edit.png">
+        </a>
+    {% endif %}
+
+    <h1 class="display-5">{{college.subject}}</h1>
+    <p class="fs-3 text-break">
+        {% if college.author.image %}
+            <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(college.author.image.read())}}">
+        {% endif %}
+            <p><h2>School: {{college.school}}</h2></p>
+            <p><h4>Loaction: {{college.location}}</h4></p> 
+            <p><h4>Description: {{college.description}}</h4></p> 
+            <p><h4>Ranking: {{college.ranking}}</h4></p> 
+            <p><h4>Tuition In: {{college.tuition_in}}</h4></p> 
+            <p><h4>Tuition Out: {{college.tuition_out}}</h4></p> 
+            <p><h4>Acceptance Rate: {{college.acceptance}}</h4></p> 
+            <p><h4>Graduation Rate: {{college.grad_rate}}</h4></p> 
+    </p>
+
+{% else %}
+    <h1 class="display-5">No Schools</h1>
+{% endif %}
+</div>
+{% endblock %}

@@ -10,11 +10,11 @@
             {% endfor %}
         {% endfor %}
 
-        <h1 class="display-5">{{post.subject}}</h1>
-        {{post.content}} <br>
+        <h1 class="display-5">{{test.subject}}</h1>
+        {{test.content}} <br>
         <h1 class="display-5">New Comment</h1>
 
-        <form method=post>
+        <form method=test>
             {{ form.hidden_tag() }}
             
             {{ form.content.label }} <br>
